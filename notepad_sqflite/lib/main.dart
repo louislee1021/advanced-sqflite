@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tekartik_notepad_sqflite_app/model/note.dart';
 import 'package:tekartik_notepad_sqflite_app/page/list_page.dart';
 import 'package:tekartik_notepad_sqflite_app/provider/note_provider.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
@@ -19,7 +20,7 @@ Future main() async {
 
   var databaseFactory = getDatabaseFactory(packageName: packageName);
 
-  noteProvider = DbNoteProvider(databaseFactory);
+  noteProvider = DbNoteProvider(databaseFactory, DbNoteConfig.instance);
   // devPrint('/notepad Starting');
   await noteProvider.ready;
   runApp(MyApp());

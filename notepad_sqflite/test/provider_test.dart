@@ -7,6 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:tekartik_notepad_sqflite_app/model/note.dart';
 import 'package:tekartik_notepad_sqflite_app/provider/note_provider.dart';
 
 void main() {
@@ -15,7 +16,7 @@ void main() {
 
   group('provider', () {
     test('save', () async {
-      var provider = DbNoteProvider(factory);
+      var provider = DbNoteProvider(factory, DbNoteConfig.instance);
       await provider.deleteDb();
       await provider.open();
       var first = await provider.onNotes().first;
@@ -23,7 +24,7 @@ void main() {
       await provider.close();
     });
     test('initial', () async {
-      var provider = DbNoteProvider(factory);
+      var provider = DbNoteProvider(factory, DbNoteConfig.instance);
       await provider.deleteDb();
       await provider.open();
       var first = await provider.onNotes().first;

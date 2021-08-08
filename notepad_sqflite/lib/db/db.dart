@@ -2,9 +2,10 @@ import 'package:tekartik_notepad_sqflite_app/model/model_constant.dart';
 import 'package:tekartik_notepad_sqflite_app/utils/utils.dart';
 import 'package:tekartik_common_utils/model/model.dart';
 
-abstract class DbRecord {
+class DbRecord {
+  /// need override
   /// to override something like [name, description]
-  List<Field> get fields;
+  List<Field> get fields => [];
 
   // Only created if necessary
   Map<String, Field>? _fieldMap;
